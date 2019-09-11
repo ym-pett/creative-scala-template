@@ -19,7 +19,7 @@ object Example {
       .on(Image.circle(30).fillColor(Color.steelBlue))
 
   val animation =
-    Reactor
+    BasicReactor
       .linearRamp(-200, 200, 1)
       .tickRate(20.millis)
       .render{x =>
