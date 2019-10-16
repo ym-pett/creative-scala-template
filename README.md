@@ -6,7 +6,7 @@ Fork or clone this template. (What's the difference? If you fork this repository
 
 Then run `sbt.sh` (OS X and Linux) or `sbt.bat` (Windows) to start SBT.
 
-Finally type `console` in SBT and then type `Example.image.draw`. If you see a picture of three nested circles everything is working well.
+Finally type `console` in SBT and then type `Example.image.draw()`. If you see a picture of three nested circles everything is working well.
 
 You can edit the file `Example.scala` to create your own code. See [Creative Scala][creative-scala] for more!
 
