@@ -19,8 +19,10 @@ object Example {
       .on(Image.circle(30).fillColor(Color.steelBlue))
 
   val animation =
-    BasicReactor
-      .linearRamp(-200, 200, 1)
+    Reactor
+      .init(-200)
+      .onTick(x => x + 1)
+      .stop(x => x > 200)
       .tickRate(20.millis)
       .render{x =>
         val y = x.degrees.sin * 200

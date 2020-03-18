@@ -1,4 +1,4 @@
-scalaVersion := "2.12.8"
+scalaVersion := "2.13.1"
 
 // resolvers += Resolver.bintrayRepo("underscoreio", "training")
 
@@ -11,5 +11,5 @@ initialCommands in console := """
     """.trim.stripMargin
 
 libraryDependencies ++= Seq(
-  "org.creativescala" %% "doodle" % "0.9.7",
+  "org.creativescala" %% "doodle" % "0.9.18",
 )
