@@ -16,7 +16,7 @@ This is a template project designed for people taking [Creative Scala][creative-
       1. Go to the Start Menu.
       2. Search for Command Prompt.
       3. Click that to open it. 
-3. Type `sbt run` and skip to step 5 (steps 3, 4, and 5 do the same thing as this). Or, continue to step 6.
+3. Type `sbt run` and skip to step 6 (steps 4 and 5 do the same thing as this). Or, continue to step 4.
 4. Run `./sbt.sh` (OS X and Linux) or `sbt.bat` (Windows) to start SBT.
 5. Type `console` in SBT.
 6. Type `Example.image.draw()`. You should see a pop-up window containing a picture of three nested circles. If so, everything is working well.
