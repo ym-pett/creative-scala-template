@@ -20,6 +20,7 @@ project/plugins/project/
 
 # metals specific
 .metals/
+.bsp
 .bloop/
 .ammonite/
 metals.sbt
