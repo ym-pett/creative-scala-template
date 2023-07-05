@@ -1,14 +1,14 @@
-scalaVersion := "2.13.10"
+scalaVersion := "3.3.0"
 
 console / initialCommands := """
-      |import doodle.core._
-      |import doodle.image._
-      |import doodle.image.syntax.all._
-      |import doodle.image.syntax.core._
-      |import doodle.java2d._
+      |import doodle.core.*
+      |import doodle.image.*
+      |import doodle.image.syntax.all.*
+      |import doodle.image.syntax.core.*
+      |import doodle.java2d.*
       |import cats.effect.unsafe.implicits.global
     """.trim.stripMargin
 
 libraryDependencies ++= Seq(
-  "org.creativescala" %% "doodle" % "0.15.0"
+  "org.creativescala" %% "doodle" % "0.19.0"
 )
