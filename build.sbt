@@ -10,5 +10,5 @@ console / initialCommands := """
     """.trim.stripMargin
 
 libraryDependencies ++= Seq(
-  "org.creativescala" %% "doodle" % "0.19.0"
+  "org.creativescala" %% "doodle" % "0.20.0"
 )
