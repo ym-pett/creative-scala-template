@@ -16,20 +16,20 @@ object Example {
     Image
       .circle(100)
       .fillColor(Color.red)
-      .on(Image.circle(200).fillColor(Color.aquamarine))
+      .on(Image.star(5,100,50).fillColor(Color.aquamarine))
       .on(Image.circle(300).fillColor(Color.steelBlue))
 
   val animation =
     Reactor
       .init(0.degrees)
       .withOnTick(a => a + 1.degrees)
-      .withStop(a => a > 360.degrees)
+      //.withStop(a => a > 360.degrees)
       .withTickRate(20.millis)
       .withRender { a =>
         val location = Point(200, a)
         val planet = Image.circle(40.0).noStroke.fillColor(Color.seaGreen)
-        val moon = Image
-          .circle(10.0)
+        val moon = Image.star(5,50,25)
+        //  .circle(10.0)
           .noStroke
           .fillColor(Color.slateGray)
           .at(Point(60, a * 5))
@@ -39,10 +39,10 @@ object Example {
 
   val frame = Frame.default.withSize(600, 600).withCenterAtOrigin
 
-  @main def go(): Unit = {
-    image.draw()
+  //@main def go(): Unit = {
+    // image.draw()
 
     // Comment out the above and uncomment the below to display the animation
-    // animation.run(frame)
-  }
+ //   animation.run(frame)
+  //}
 }
