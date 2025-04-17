@@ -9,28 +9,36 @@ import doodle.java2d.*
 
     // box: take colour for box & angle, create box with the colour spun by angle
 
-    def box(color: Color, angle: Int) : Image = {
-        val new_colour = color.spin(angle.degrees)
-        val box = 
-            Image.rectangle(40,40).
-                strokeWidth(5.0).
-                strokeColor(color).
-                fillColor(new_colour)
-        // TODO: how to make it return new_colour so that it can be passed to the next??
+    def box(color: Color, angle: Int) : (Image, Color) = {
+      val newColour = color.spin(angle.degrees)
+      val imageBox = 
+        Image.rectangle(40,40)
+          .strokeWidth(5.0)
+          .strokeColor(color)
+          .fillColor(newColour)
+        // TODO: is this the most convenient way to return?
+      (imageBox, newColour)
     }
-
+        
     // gradientBoxes: takes Colour, calls box & returns image of 5 boxes filled with colors rotated by 15degree
 
     def gradientBoxes(color: Color) : Image = {
+      val (box1, color1) = box(color, 15)
+      val (box2, color2) = box(color1, 15)
+      val (box3, color3) = box(color2, 15)
+      val (box4, color4) = box(color3, 15)
+      val (box5, _)      = box(color4, 15)
 
-        box(color, 15) beside // here I'd need it to return the newcolour & pass it to next function call
-        box(new_colour, 15) beside
-        box(new_colour, 15) beside
-        box(new_colour, 15) beside
-        box(new_colour, 15) beside
+      box1.beside(box2).beside(box3).beside(box4).beside(box5)
     }
 
-    gradientBoxes(Color.cornflowerBlue)
+    gradientBoxes(Color.cornflowerBlue).draw()
+
+    // val (newbox, newcol) = box(Color.cornSilk, 15)
+
+    // newbox.draw()
+
+    // println(newcol)
 
 
 }
