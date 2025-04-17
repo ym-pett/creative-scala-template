@@ -19,15 +19,18 @@ import doodle.java2d.*
         // TODO: how to make it return new_colour so that it can be passed to the next??
     }
 
-    // gradientBoxes: takes Colour, calls box & returns image of 5 boxes filled with color rotated by 15degree
+    // gradientBoxes: takes Colour, calls box & returns image of 5 boxes filled with colors rotated by 15degree
 
     def gradientBoxes(color: Color) : Image = {
 
-        box(color, 15.degrees) beside // here I'd need it to return the newcolour & pass it to next function call
-        box(new_colour, 15.degrees) beside
-        box(new_colour, 15.degrees) beside
-        box(new_colour, 15.degrees) beside
+        box(color, 15) beside // here I'd need it to return the newcolour & pass it to next function call
+        box(new_colour, 15) beside
+        box(new_colour, 15) beside
+        box(new_colour, 15) beside
+        box(new_colour, 15) beside
     }
+
+    gradientBoxes(Color.cornflowerBlue)
 
 
 }
