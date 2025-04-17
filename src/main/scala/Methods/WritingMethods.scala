@@ -39,8 +39,7 @@ import doodle.java2d.*
     // newbox.draw()
 
     // println(newcol)
-
-    // temp
+    
 
 
 }
