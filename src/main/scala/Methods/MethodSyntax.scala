@@ -20,7 +20,7 @@ import doodle.java2d.*
     //////// Exercise: Halve ////////
 
     def halve(x : Float) : Float =
-        // TODO: does division by 2.0 offer additional security?
+        // DONE: does division by 2.0 offer additional security?
         x / 2
 
     println(halve(3))

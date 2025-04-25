@@ -40,7 +40,7 @@ import doodle.effect.Renderer
     //     .triangle(40,40)
     //     .fillColor(Color.turquoise.spin(40.degrees))).draw()
 
-    // Exercise: Analogous Triangles with a for-loop TODO: discuss this? 
+    // Exercise: Analogous Triangles with a for-loop DONE: discuss this? 
 
     val triangles = (0 to 2).map { i =>
         val angle = i * 20
