@@ -15,7 +15,7 @@ import doodle.java2d.*
     }
 
     def funRow(count: Int): Image = {
-        // is the only way to make this work by only defining star below? 
+        // TODO: talk over why this works, i.e. how does the n in star() get decreased?  
         count match {
 
             case 0 => Image.empty
