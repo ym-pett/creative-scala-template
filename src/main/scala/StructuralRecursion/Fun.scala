@@ -14,7 +14,7 @@ import doodle.java2d.*
         strokeWidth(5)
     }
 
-    def funRow(n: Int): Image = {
+    def funRow(count: Int): Image = {
         // is the only way to make this work by only defining star below? 
         count match {
 
