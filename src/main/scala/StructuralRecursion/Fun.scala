@@ -15,19 +15,72 @@ import doodle.java2d.*
     }
 
     def funRow(count: Int): Image = {
-        // TODO: talk over why this works, i.e. how does the n in star() get decreased?  
+        // done: talk over why this works, i.e. how does the n in star() get decreased?  
         count match {
-
             case 0 => Image.empty
-            
             case n => star(n).beside(funRow((n-1)))
-
         }
-            
-        
     }
 
     funRow(5).draw()
 
+    // funRow(2)
+    // subst count == 2 into
+    // count match {
+    //   case 0 => Image.empty
+    //   case n => star(n).beside(funRow((n-1)))
+    // }
 
+    // 2 match {
+    //   case 0 => Image.empty
+    //   case n => star(n).beside(funRow((n-1)))
+    // }
+
+    // 2 match {
+    //   matches with n == 2
+    //   case n => star(n).beside(funRow((n-1)))
+    // }
+
+    //   matches with n == 2
+    //   case n => star(n).beside(funRow((n-1)))
+
+    // star(2).beside(funRow(2 - 1))
+    // star(2).beside(funRow(1))
+ 
+    // star(2).beside(
+      // subst count == 1 into
+      // count match {
+      //   case 0 => Image.empty
+      //   case n => star(n).beside(funRow((n-1)))
+      // }
+    // )
+
+    // star(2).beside(
+      // 1 match {
+      //   subst n == 1
+      //   case n => star(n).beside(funRow((n-1)))
+      // }
+    // )
+
+    // star(2).beside(
+      //   star(1).beside(funRow((1-1)))
+    // )
+
+    // star(2).beside(
+      //   star(1).beside(funRow((0)))
+    // )
+
+    // star(2).beside(
+      //   star(1).beside(
+      //      funRow((0))
+      //   )
+    // )
+
+    // star(2).beside(
+      //   star(1).beside(
+      //      Image.empty
+      //   )
+    // )
+
+    // star(2).beside(star(1).beside(Image.empty))
 }

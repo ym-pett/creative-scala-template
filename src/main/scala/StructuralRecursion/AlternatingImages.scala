@@ -34,7 +34,7 @@ import doodle.java2d.*
         count match{
 
             case 0 => Image.empty
-            //TODO: talk through how this works & learn to use debugger efficiently
+            //done: talk through how this works & learn to use debugger efficiently
             case n => 
                 if (n % 2 == 0) star().beside(alternatingRow(n-1))
                 else circle().beside(alternatingRow(n-1))

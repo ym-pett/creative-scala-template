@@ -26,7 +26,7 @@ import doodle.java2d.*
       count match {
 
         case 0 => inside
-        // TODO: discuss this, as to me this should just print the original single cross n-times
+        // done: discuss this, as to me this should just print the original single cross n-times
         case n => petal.above(petal.beside(cross(n-1).beside(petal))).above(petal)
         }
 

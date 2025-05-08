@@ -2,7 +2,7 @@
 
 @main def Matching(): Unit = {
 
-    // // TODO: how can i see what it evaluates to? discuss, not sure I get 
+    // // done: how can i see what it evaluates to? discuss, not sure I get 
     // 1 match {
     //     case a => a
     //     case b => b + 1
@@ -16,7 +16,7 @@
     //     case "b" => "no!"
     // }
 
-    // TODO: same here, how to see all output?
+    // done: same here, how to see all output?
     def double(n: Int): Int =
         n match {
             case 0 => 0
