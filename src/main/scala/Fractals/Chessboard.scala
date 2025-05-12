@@ -13,18 +13,22 @@ import doodle.java2d.*
 
     val red = Image.square(20).fillColor(Color.red)
     val black = Image.square(20).fillColor(Color.black)
-    val base = red.beside(black).above(black.beside(red))
+    val base = {
+      println("created base")
+      red.beside(black).above(black.beside(red))
+    }
 
     def loop(count: Int): Image = {
       count match {
         case 0 => base
         case n =>
-          // TODO: discuss - both my versions don't call loop directly, whereas textbook does
-          val square = chessboard(n - 1)
+          // note you need to call loop, if you run via chessboard(n-1) base gets created each time!!
+          val square = loop(n - 1)
           square.beside(square).above(square.beside(square))
-        //   chessboard(n - 1)
-        //     .beside(chessboard(n - 1))
-        //     .above(chessboard(n - 1).beside(chessboard(n - 1)))
+        // definitely dislike syntax below, 1st much clearer
+          // loop(n - 1)
+          //   .beside(loop(n - 1))
+          //   .above(loop(n - 1).beside(loop(n - 1)))
 
       }
     }
