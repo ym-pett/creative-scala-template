@@ -18,6 +18,7 @@ import doodle.java2d.*
     count match {
       case 0 => base
       case n => 
+        // note how both equivalent, choose which is clearer. importance is that chessboard calls itself
         // val square = chessboard(n - 1)
         // square.beside(square).above(square.beside(square))
         chessboard(n-1).beside(chessboard(n-1)).above(chessboard(n-1).beside(chessboard(n-1)))
