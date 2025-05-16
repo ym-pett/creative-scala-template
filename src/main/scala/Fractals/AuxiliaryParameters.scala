@@ -14,10 +14,11 @@ import doodle.java2d.*
       case 0 => Image.empty
       case n =>
         Image
-          .square(size).fillColor(Color.red)
+          .square(size)
           .beside(growingBoxes(n - 1, size + 10))
     }
+  // TODO: discuss indentation here, I had it wrongly indented by 1 & couldn't call .draw() on it, but could run
+  growingBoxes(3, 10).draw()
 
-    growingBoxes(3, 5)
 
 }
