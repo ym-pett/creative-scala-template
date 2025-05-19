@@ -17,7 +17,7 @@ import doodle.java2d.*
           .square(size)
           .beside(growingBoxes(n - 1, size + 10))
     }
-  // TODO: discuss indentation here, I had it wrongly indented by 1 & couldn't call .draw() on it, but could run
+  // TODO: discuss indentation here, I had it wrongly indented by 1 & couldn't call .draw() on it, but could run without .draw()
   growingBoxes(3, 10).draw()
 
 
