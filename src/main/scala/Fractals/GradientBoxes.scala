@@ -1,0 +1,32 @@
+package fractals
+
+import cats.effect.unsafe.implicits.global
+import doodle.core.*
+import doodle.image.*
+import doodle.syntax.all.*
+import doodle.image.syntax.all.*
+import doodle.java2d.*
+
+@main def Boxes(): Unit = {
+
+  def gradientBoxes(count: Int): Image = {
+    // TODO: tried to rewrite with 'loop' syntax, can this be done?
+    count match {
+      case 0 => Image.empty
+      case n =>
+        Image
+          .square(20)
+          .fillColor(Color.cornflowerBlue.spin((n * 30).degrees))
+          // TODO: discuss why we need to apply the spin above, 
+          // and can't do gradientBoxes(n - 1, n * 30) 
+          // especially compared to growingBoxes()
+          .beside(gradientBoxes(n - 1))
+
+    }
+
+  }
+
+  gradientBoxes(5).draw()
+
+
+}
