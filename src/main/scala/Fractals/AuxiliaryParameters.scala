@@ -17,7 +17,7 @@ import doodle.java2d.*
           .square(size)
           .beside(growingBoxes(n - 1, size + 10))
     }
-  // TODO: discuss indentation here, I had it wrongly indented by 1 & couldn't call .draw() on it, but could run without .draw()
+  // indentation matters in Scala3, think of types being returned, that's where the problem occurs! if wrongly indented, these are wrong
   growingBoxes(3, 10).draw()
 
 

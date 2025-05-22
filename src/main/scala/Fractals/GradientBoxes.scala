@@ -17,9 +17,6 @@ import doodle.java2d.*
         Image
           .square(20)
           .fillColor(Color.cornflowerBlue.spin((n * 30).degrees))
-          // TODO: discuss why we need to apply the spin above, 
-          // and can't do gradientBoxes(n - 1, n * 30) 
-          // especially compared to growingBoxes()
           .beside(gradientBoxes(n - 1))
 
     }
