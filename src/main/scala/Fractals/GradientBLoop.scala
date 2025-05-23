@@ -7,23 +7,23 @@ import doodle.syntax.all.*
 import doodle.image.syntax.all.*
 import doodle.java2d.*
 
-@main def Boxes(): Unit = {
+@main def BoxesAlt(): Unit = {
+// alternative to gradientBoxes with loop
+  def gradientBl(count: Int, spn: Int): Image = {
 
-  def gradientBoxes(count: Int): Image = {
-    // TODO: tried to rewrite with 'loop' syntax, can this be done?
     count match {
       case 0 => Image.empty
       case n =>
         Image
           .square(20)
-          .fillColor(Color.cornflowerBlue.spin((n * 30).degrees))
-          .beside(gradientBoxes(n - 1))
+          .fillColor(Color.cornflowerBlue.spin((spn).degrees))
+          .beside(gradientBl(n - 1, spn + 30))
 
     }
 
   }
 
-  gradientBoxes(5).draw()
+  gradientBl(3,10).draw()
 
 
 }
