@@ -12,7 +12,6 @@ import doodle.java2d.*
       strokeColor(color.spin((15 * n).degrees)).
       strokeWidth(3)
 
-    // TODO: talk over this
     // TODO FUTURE: when I know more ways of looping, rewrite with different operations? 
     def concentricCircles(color: Color): Image = {
       val circles = (0 to 4).map { n =>
