@@ -28,9 +28,27 @@ import scala.annotation.tailrec
     loop(sides)
   }
 
-  polygonPoints(3, 50)
+  def polygonPointsTailrecursive(sides: Int, radius: Double): Image = {
+
+    val inc = 360 / sides // 120
+    
+    @tailrec
+    def loop(count: Int, accumulatedImage: Image): Image = {
+
+      count match {
+        case 0 => accumulatedImage
+        case n => loop(n -1, dot.at(Point(radius, (n *inc).degrees)).on(accumulatedImage))
+      }
+    }
+
+    loop(sides, Image.empty)
+  }
+
+
+
+  polygonPointsTailrecursive(3, 50)
   .fillColor(Color.crimson)
-  .beside(polygonPoints(5, 50).fillColor(Color.lawngreen))
-  .beside(polygonPoints(7, 50).fillColor(Color.dodgerBlue)).draw()
+  .beside(polygonPointsTailrecursive(5, 50).fillColor(Color.lawngreen))
+  .beside(polygonPointsTailrecursive(7, 50).fillColor(Color.dodgerBlue)).draw()
 
 }
