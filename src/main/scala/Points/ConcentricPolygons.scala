@@ -31,9 +31,8 @@ import doodle.java2d.*
     count match {
       // TODO: discuss: didn't know setting a non-zero case could work!
       case 2 =>
-        Image.empty // or should this be when sides = 3? but then we'd be going out, n +1, rather than in, n-1!
+        Image.empty 
       case n => stackingPolygons(n - 1, biggest_radius - dec).on(regularPolygon(n, biggest_radius))
-      // case n => regularPolygon(loop(n-1), first_radius * 1.5).on(regularPolygon(n, first_radius)
     }
   }
 
