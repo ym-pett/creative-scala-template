@@ -8,7 +8,7 @@ import doodle.image.syntax.all.*
 import doodle.java2d.*
 
 @main def concentricP(): Unit = {
-// TODO: could i have imported this function from Paths.scala? 
+// TODO: could i have imported this function from Paths.scala?
   def regularPolygon(sides: Int, radius: Double): Image = {
 
     val inc = 360 / sides
@@ -17,18 +17,22 @@ import doodle.java2d.*
 
       count match {
         case 0 => ClosedPath.empty.moveTo(radius, 0.degrees)
-        case n => loop(n-1).lineTo(radius, (n*inc).degrees)
+        case n => loop(n - 1).lineTo(radius, (n * inc).degrees)
       }
     }
     Image.path(loop(sides))
   }
 
-  def stackingPolygons(count: Int): Image = {
+  def stackingPolygons(count: Int, first_radius: Double): Image = {
 
-    def loop(count: Int) : Image = {
-      case 0 => Image.empty // or should this be when sides = 3? but then we'd be going out, n +1, rather than in, n-1!
-      case n => regularPolygon().on(regularPolygon(loop(n-1))
-
+    count match {
+      case 0 =>
+        Image.empty // or should this be when sides = 3? but then we'd be going out, n +1, rather than in, n-1!
+      case n => stackingPolygons(n - 1, first_radius * 1.5).on(regularPolygon(n, first_radius))
+      // case n => regularPolygon(loop(n-1), first_radius * 1.5).on(regularPolygon(n, first_radius)
     }
   }
+
+  stackingPolygons(6, 10).draw()
+
 }
