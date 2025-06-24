@@ -30,12 +30,12 @@ import doodle.java2d.*
 
     count match {
       // TODO: discuss: didn't know setting a non-zero case could work!
-      case 2 =>
-        Image.empty 
+      case x if count < 3 =>
+        Image.empty
       case n => stackingPolygons(n - 1, biggest_radius - dec).on(regularPolygon(n, biggest_radius))
     }
   }
 
-  stackingPolygons(8, 50).draw()
+  stackingPolygons(1, 50).draw()
 
 }
