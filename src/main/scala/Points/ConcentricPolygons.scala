@@ -26,16 +26,24 @@ import doodle.java2d.*
   def stackingPolygons(count: Int, biggest_radius: Double): Image = {
 
     // figure out what the decrement should be
+    // TODO: rewrite this solution so we don't decrement, but can build up from the smallest radius
     val dec = biggest_radius / count
 
+    // alternative base case I had:
+      // count match {
+        // case x if count < 3 =>
+        //   Image.empty
+        // case n => stackingPolygons...
+
     count match {
-      // TODO: discuss: didn't know setting a non-zero case could work!
-      case x if count < 3 =>
+      case 0 =>
         Image.empty
-      case n => stackingPolygons(n - 1, biggest_radius - dec).on(regularPolygon(n, biggest_radius))
+      case n => stackingPolygons(n - 1, biggest_radius - dec).on(regularPolygon(n+2, biggest_radius)
+      .strokeWidth(2)
+      .strokeColor(Color.crimson.darkenBy((n*0.1).normalized)))
     }
   }
 
-  stackingPolygons(1, 50).draw()
+  stackingPolygons(8, 50).draw()
 
 }
