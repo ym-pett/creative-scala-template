@@ -29,7 +29,7 @@ import doodle.java2d.*
     // TODO: rewrite this solution so we don't decrement, but can build up from the smallest radius
     val dec = biggest_radius / count
 
-    // alternative base case I had:
+    // TODO: discuss alternative base case I had:
       // count match {
         // case x if count < 3 =>
         //   Image.empty
