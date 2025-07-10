@@ -14,9 +14,6 @@ import doodle.syntax.angle
 
     val turn = Angle.one / points
 
-    val curve:(angle: Angle) => Point =
-      Point(100, angle)
-
     def loop(count: Int): Image = {
       count match {
         case 0 => marker.at(curve(Angle.zero))
@@ -28,6 +25,9 @@ import doodle.syntax.angle
     loop(points)
   }
 
-  drawCurve(8, Image.circle(5).fillColor(Color.darkOrange))
+// TODO: discuss this is a function, right? drawCurve too? getting confused because of 'def'.. 
+  val curve = (angle: Angle) => Point.polar(100, angle)
+
+  drawCurve(8, Image.circle(5).fillColor(Color.darkOrange), curve)
 
 }
