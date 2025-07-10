@@ -16,7 +16,7 @@ import scala.annotation.tailrec
   def polygonPoints(sides: Int, radius: Double): Image = {
 
     val inc = 360 / sides // 120
-// TODO: stretch goal make it tail recursive :)
+// stretch goal make it tail recursive :)
     def loop(count: Int): Image = {
 
       count match {
