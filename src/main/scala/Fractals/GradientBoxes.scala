@@ -10,7 +10,6 @@ import doodle.java2d.*
 @main def Boxes(): Unit = {
 
   def gradientBoxes(count: Int): Image = {
-    // TODO: tried to rewrite with 'loop' syntax, can this be done?
     count match {
       case 0 => Image.empty
       case n =>

@@ -34,6 +34,6 @@ import doodle.java2d._
 
   imageSequence(Image.triangle(12, 24)).draw()
 
-  // TODO: discuss exercise 2 with noel, confirm a function's type is both its input and output? 
+  
 
 }

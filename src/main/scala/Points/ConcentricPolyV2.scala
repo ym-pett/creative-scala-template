@@ -24,7 +24,7 @@ import doodle.java2d.*
   }
 
   def stackingPolygons(count: Int, radius: Double): Image = {
-    // TODO: discuss, modification can happen on regularpoygon or stackingpolygons
+    // modification can happen on regularpoygon or stackingpolygons
     // see other concentricpoly...
     count match {
       case 0 =>
