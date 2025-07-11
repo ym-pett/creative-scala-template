@@ -16,7 +16,11 @@ import doodle.syntax.angle
 
     def loop(count: Int): Image = {
       count match {
-        case 0 => marker.at(curve(Angle.zero))
+        case 0 => 
+          // marker.at(curve(Angle.zero))
+          val point = curve(Angle.zero)
+          marker.at(point)
+
         case n =>
           marker.at(curve(turn * count)).on(loop(n - 1))
       }
@@ -25,9 +29,44 @@ import doodle.syntax.angle
     loop(points)
   }
 
-// TODO: discuss this is a function, right? drawCurve too? getting confused because of 'def'.. 
-  val curve = (angle: Angle) => Point.polar(100, angle)
+  // A parametric curve is Angle => Point
 
-  drawCurve(8, Image.circle(5).fillColor(Color.darkOrange), curve)
+  // This is a Angle => Point function. This is a parametric curve.
+  val circle: Angle => Point = (angle: Angle) => Point.polar(100, angle)
 
+  // This draws a parametric circle
+  drawCurve(8, Image.circle(5).fillColor(Color.darkOrange), circle)
+
+  ////////////////// Spiral //////////////////
+
+  // WWKCD? 
+  val parametricSpiral: Angle => Point = (angle: Angle) => Point.polar(100 * angle.toTurns, angle)
+
+  // This draws a parametric spiral
+  drawCurve(8, Image.circle(5).fillColor(Color.darkOrange), parametricSpiral).draw()
+
+  ////////////////// Expressive Drawing //////////////////
+
+  def drawExpressiveCurve(points: Int, marker: Point => Image, curve: Angle => Point): Image = {
+
+    val turn = Angle.one / points
+
+    def loop(count: Int): Image = {
+      count match {
+        case 0 => 
+          val point = curve(Angle.zero)
+          marker(point).at(point)
+
+        case n =>
+          val point = curve(turn * count)
+          marker(point).at(point).on(loop(n - 1))
+      }
+    }
+
+    loop(points)
+  }
+
+  val marker: Point => Image = (point: Point) => Image.circle(point.r).fillColor(Color.crimson.spin(point.angle))
+
+  drawExpressiveCurve(16, marker, parametricSpiral).draw()
 }

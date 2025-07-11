@@ -11,6 +11,7 @@ import doodle.java2d._
 
   //////////// EExercise: Gradient Boxes Revisited ////////////
 
+  // Function; has =>
   val gradBoxes: (Int, Image) => Image =
     (count, image) =>
       Image
@@ -18,14 +19,25 @@ import doodle.java2d._
         .fillColor(Color.seaGreen.spin(15.degrees * count))
         .beside(image)
 
+  // Method: starts with def
   def fold(count: Int, gradBoxes: (Int, Image) => Image): Image =
     count match {
       case 0 => Image.empty
       case n => gradBoxes(n, fold(count - 1, gradBoxes))
     }
 
+
   // fold(5, gradBoxes)
-  //   .draw() // TODO: discuss fact that 'fold' isn't given in the solution really works well from a pedagogical pov, just enough stretch
+  //   .draw() 
+  // def addOne(x: Int): Int = x + 1 // Scala method
+  // x => x + 1 // Scala function
+  // lambda x: x + 1 // Python "lambda"
+  // Functions in Scala are "first class" but methods are not.
+  // Methods in Python are "first class".
+  // First class means:
+  // 1. assigned to a variable
+  // 2. passed as an argument to a method or function
+  // 3. returned from a method or function
 
   ////////////////// Exercise: Decreasing Dots //////////////////
 
@@ -39,10 +51,10 @@ import doodle.java2d._
   def foldDots(count: Int, decreasingDots: (Int, Image) => Image): Image =
     count match {
       case 0 => Image.empty
-      case n => decreasingDots(n, foldDots(count - 1, decreasingDots)) // TODO: discuss, this needs to be foldDots here, can't be fold?  (works with fold when defined above, why??)
+      case n => decreasingDots(n, fold(count - 1, decreasingDots)) // TODO: discuss, this needs to be foldDots here, can't be fold?  (works with fold when defined above, why??)
     }
 
-  // foldDots(5, decreasingDots).draw()
+  fold(5, decreasingDots).draw()
 
   ////////////////// Once more to get the hang //////////////////
 
@@ -59,6 +71,6 @@ import doodle.java2d._
       case n => starTrail(n, foldStars(count-1, starTrail))
     }
 
-  foldStars(5, starTrail).draw()
+  // foldStars(5, starTrail).draw()
 
 }

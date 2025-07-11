@@ -10,7 +10,7 @@ import doodle.java2d.*
 @main def Boxes2(): Unit = {
 
   def gradientB2(count: Int): Image = {
-// TODO re-code this to memorise; fix formatting to fit Scala
+// EXTENSION: re-code this to memorise?
     def loop(count: Int): Image = {
       val aBox = Image
         .square(20)
