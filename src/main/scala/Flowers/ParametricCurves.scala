@@ -35,7 +35,7 @@ import doodle.syntax.angle
   val circle: Angle => Point = (angle: Angle) => Point.polar(100, angle)
 
   // This draws a parametric circle
-  drawCurve(8, Image.circle(5).fillColor(Color.darkOrange), circle)
+  // drawCurve(128, Image.circle(5).fillColor(Color.darkOrange), circle).draw()
 
   ////////////////// Spiral //////////////////
 
@@ -43,7 +43,7 @@ import doodle.syntax.angle
   val parametricSpiral: Angle => Point = (angle: Angle) => Point.polar(100 * angle.toTurns, angle)
 
   // This draws a parametric spiral
-  drawCurve(8, Image.circle(5).fillColor(Color.darkOrange), parametricSpiral).draw()
+  // drawCurve(64, Image.circle(5).fillColor(Color.darkOrange), parametricSpiral).draw()
 
   ////////////////// Expressive Drawing //////////////////
 
@@ -66,7 +66,7 @@ import doodle.syntax.angle
     loop(points)
   }
 
-  val marker: Point => Image = (point: Point) => Image.circle(point.r).fillColor(Color.crimson.spin(point.angle))
+  val marker: Point => Image = (point: Point) => Image.circle(point.r * 0.125).fillColor(Color.crimson.spin(point.angle))
 
-  drawExpressiveCurve(16, marker, parametricSpiral).draw()
+  drawExpressiveCurve(32, marker, parametricSpiral).draw()
 }
