@@ -9,7 +9,7 @@ import doodle.java2d._
 
 @main def gradBoxesRev(): Unit = {
 
-  //////////// EExercise: Gradient Boxes Revisited ////////////
+  //////////// Exercise: Gradient Boxes Revisited ////////////
 
   // Function; has =>
   val gradBoxes: (Int, Image) => Image =
@@ -20,15 +20,17 @@ import doodle.java2d._
         .beside(image)
 
   // Method: starts with def
-  def fold(count: Int, gradBoxes: (Int, Image) => Image): Image =
+  def fold(count: Int, f: (Int, Image) => Image): Image =
     count match {
       case 0 => Image.empty
-      case n => gradBoxes(n, fold(count - 1, gradBoxes))
+      case n => f(n, fold(count - 1, f))
     }
 
 
-  // fold(5, gradBoxes)
-  //   .draw() 
+  // fold(10, gradBoxes).draw()
+
+  // function & method discussion:
+
   // def addOne(x: Int): Int = x + 1 // Scala method
   // x => x + 1 // Scala function
   // lambda x: x + 1 // Python "lambda"
@@ -48,13 +50,7 @@ import doodle.java2d._
         .fillColor(Color.orangeRed.spin(10.degrees * count))
         .beside(image)
 
-  def foldDots(count: Int, decreasingDots: (Int, Image) => Image): Image =
-    count match {
-      case 0 => Image.empty
-      case n => decreasingDots(n, fold(count - 1, decreasingDots)) // TODO: discuss, this needs to be foldDots here, can't be fold?  (works with fold when defined above, why??)
-    }
-
-  fold(5, decreasingDots).draw()
+  // fold(7, decreasingDots).draw()
 
   ////////////////// Once more to get the hang //////////////////
 
@@ -65,12 +61,6 @@ import doodle.java2d._
       .fillColor(Color.paleTurquoise.spin(15.degrees * count))
       .beside(image)
 
-  def foldStars(count: Int, starTrail: (Int, Image) => Image): Image =
-    count match {
-      case 0 => Image.empty
-      case n => starTrail(n, foldStars(count-1, starTrail))
-    }
-
-  // foldStars(5, starTrail).draw()
+  fold(8, starTrail).draw()
 
 }
