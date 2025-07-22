@@ -22,7 +22,7 @@ import doodle.syntax.angle
           marker.at(point)
 
         case n =>
-          marker.at(curve(turn * count)).on(loop(n - 1))
+          marker.at(curve(turn * (2 * count))).on(loop(n - 1))
       }
     }
 
