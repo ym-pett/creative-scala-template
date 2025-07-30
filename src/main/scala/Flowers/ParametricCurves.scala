@@ -66,7 +66,14 @@ import doodle.syntax.angle
     loop(points)
   }
 
+  // modifying point.r changes the shape of the curve
   val marker: Point => Image = (point: Point) => Image.circle(point.r * 0.125).fillColor(Color.crimson.spin(point.angle))
 
+  // TODO: need to find out how I can use a different mapping. Does Point => Image even make sense? 
+  // val starMarker: Point => Image = (point: Point) => Image.star(points + 2, 20, 10) // problem: i would need to t
+
   drawExpressiveCurve(32, marker, parametricSpiral).draw()
+
+  // currently not working!
+  // drawExpressiveCurve(32, starMarker, parametricSpiral).draw()
 }
