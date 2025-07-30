@@ -47,7 +47,7 @@ import doodle.syntax.angle
 
   ////////////////// Expressive Drawing //////////////////
 
-  def drawExpressiveCurve(points: Int, marker: (Point, Int) => Image, curve: Angle => Point): Image = {
+  def drawExpressiveCurve(points: Int, marker: (Point, Angle) => Image, curve: Angle => Point): Image = {
 
     val turn = Angle.one / points
 
@@ -55,11 +55,11 @@ import doodle.syntax.angle
       count match {
         case 0 => 
           val point = curve(Angle.zero)
-          marker(point, points).at(point)
+          marker(point, turn).at(point)
 
         case n =>
           val point = curve(turn * count)
-          marker(point,points).at(point).on(loop(n - 1))
+          marker(point,turn).at(point).on(loop(n - 1))
       }
     }
 
@@ -70,7 +70,7 @@ import doodle.syntax.angle
   // val marker: Point => Image = (point: Point) => Image.circle(point.r * 0.125).fillColor(Color.crimson.spin(point.angle))
 
   // TODO: now I need to figure out how to be able to pass it the '8' int
-  val starMarker: (Point, Int) => Image = (point: Point, int: Int) => Image.star((point.r.toInt)/(int-2), 20, 10) // problem: i would need to t
+  val starMarker: (Point, Angle) => Image = (point: Point, turn: Angle) => Image.star((point.angle.toDegrees/(turn.toDegrees)).toInt + 2, 20, 10) // problem: i would need to t
 
   // drawExpressiveCurve(8, marker, parametricSpiral).draw()
 
